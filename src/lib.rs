@@ -35,6 +35,14 @@ macro_rules! json_str {
 }
 
 #[macro_export]
+macro_rules! json_set {
+    ($o:expr;$k:expr;$v:expr) => {{
+        let obj = $o.as_object_mut().unwrap();
+        obj.insert($k.to_string(), $v.to_json());
+    }}
+}
+
+#[macro_export]
 macro_rules! json_i64 {
     ($o:expr;$($y:expr),*) => {{
         let data = json_path!($o;$($y),*);    

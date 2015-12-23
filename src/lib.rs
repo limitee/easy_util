@@ -4,6 +4,9 @@ use self::rustc_serialize::json::ToJson;
 
 use std::str::FromStr;
 
+extern crate rand;
+use self::rand::{thread_rng, Rng};
+
 #[macro_export]
 macro_rules! json {
     ($e:expr) => (Json::from_str($e).unwrap());
@@ -53,4 +56,19 @@ macro_rules! json_i64 {
             data.as_i64().unwrap()
         }
     }}
+}
+
+pub struct RandUtil;
+
+impl RandUtil {
+
+    /**
+     * [start, end)
+     */
+    pub fn get_int(start:i32, end:i32) -> i32 {
+        let mut rng = thread_rng();
+        let n: i32 = rng.gen_range(start, end);
+        n
+    }
+
 }

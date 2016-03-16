@@ -32,7 +32,7 @@ macro_rules! json_path {
 #[macro_export]
 macro_rules! json_str {
     ($o:expr;$($y:expr),*) => {{
-        let data = json_path!($o;$($y),*);    
+        let data = json_path!($o;$($y),*);
         data.as_string().unwrap()
     }}
 }

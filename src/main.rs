@@ -25,9 +25,13 @@ fn main() {
             ]
         }}
     "#);
-    let my_json = json!(&my_str);
-    let after_json = json_i64!(&my_json; "a", "2", "index");
-    println!("{}", after_json);
-    let content = json_str!(&my_json; "a", "1", "content");
-    println!("{}", content);
+    let mut my_json = json!(&my_str);
+    
+    //let after_json = json_i64!(&my_json; "a", "2", "index");
+    //println!("{}", after_json);
+    //let content = json_str!(&my_json; "a", "1", "content");
+    //println!("{}", content);
+    
+    //let obj = json_paths_mut!(my_json, "a");
+    //println!("{}", obj);
 }
